@@ -33,9 +33,9 @@ export function AllBlogs() {
     }, []);
     
   
-    return <div>
+    return <div className="flex flex-col justify-center pl-72">
             {blogs.map(blog => (
-                <div key={blog.id} className="ml-24 p-6 border-b-[1px]  w-3/5 mb-4  text-wrap">
+                <div key={blog.id} className="ml-24 p-6 border-b-[1px]  w-3/5 mb-4  text-wrap ">
                         <Link to={`/signup`}>
                         <h1 className="text-2xl font-bold">{blog.title}</h1>
                         <br />
