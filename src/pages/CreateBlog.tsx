@@ -28,7 +28,7 @@ export function Blog() {
   //function starts here
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar name={"N"}></NavBar>
       <div className="flex flex-row ">
         <div className=" w-2/4  bg-slate-500 p-10 pt-36 h-screen">
           <label className="block mb-2 text-sm font-medium text-white ">

@@ -7,7 +7,7 @@ export function Home(){
     const navigate = useNavigate()
     if(localStorage.getItem('token')){
         return <div>
-        <NavBar></NavBar>
+        <NavBar name={"N"}></NavBar>
         <br />
         <button
         onClick={()=>{

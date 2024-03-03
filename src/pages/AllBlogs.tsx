@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import { BlogsSkeleton } from "./BlogsSkeleton";
 export function AllBlogs() {
 
     const [blogs, setBlogs] = useState<any[]>([]);
-    
+    const [loading,setLoading] = useState(true)
     useEffect(() => {
         const fetchBlogs = async () => {
             const intervalId = setInterval(async () => {
@@ -19,6 +20,7 @@ export function AllBlogs() {
                     });
                     console.log(response.data.res)
                     setBlogs(response.data.res);
+                    setLoading(false)
                 } catch (error) {
                     console.error("Error fetching blogs:", error);
                     // Handle error, e.g., set an error state or display a message to the user
@@ -32,8 +34,12 @@ export function AllBlogs() {
         fetchBlogs();
     }, []);
     
-  
-    return <div className="flex flex-col justify-center pl-72">
+    if(loading){
+        return (
+            <><BlogsSkeleton></BlogsSkeleton><BlogsSkeleton></BlogsSkeleton><BlogsSkeleton></BlogsSkeleton><BlogsSkeleton></BlogsSkeleton><BlogsSkeleton></BlogsSkeleton><BlogsSkeleton></BlogsSkeleton></>
+        )
+    }else{
+        return <div className="flex flex-col justify-center pl-72">
             {blogs.map(blog => (
                 <div key={blog.id} className="ml-24 p-6 border-b-[1px]  w-3/5 mb-4  text-wrap ">
                         <Link to={`/signup`}>
@@ -44,6 +50,8 @@ export function AllBlogs() {
                 </div>
             ))}
         </div>
+    }
+    
     
 };
 

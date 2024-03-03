@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-export function NavBar() {
+export function NavBar({name}:{name:String}) {
   const navigate = useNavigate();
   const { id } = useParams();
   return (
@@ -22,7 +22,7 @@ export function NavBar() {
             <li>
           <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
               <span className="font-medium text-gray-600 dark:text-gray-300">
-                JL
+                {name[0]}
               </span>
             </div>
             </li>
